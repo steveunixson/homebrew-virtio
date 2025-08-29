@@ -17,7 +17,6 @@ class VirglrendererVenus < Formula
     system "meson", "setup", "build",
            *std_meson_args,
            "-Dvenus=true",
-           "-Dexamples=false"
     system "meson", "compile", "-C", "build", "-v"
     system "meson", "install", "-C", "build"
   end
