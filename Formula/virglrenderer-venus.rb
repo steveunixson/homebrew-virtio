@@ -16,7 +16,7 @@ class VirglrendererVenus < Formula
   def install
     system "meson", "setup", "build",
            *std_meson_args,
-           "-Dvenus=true",
+           "-Dvenus=true"
     system "meson", "compile", "-C", "build", "-v"
     system "meson", "install", "-C", "build"
   end
