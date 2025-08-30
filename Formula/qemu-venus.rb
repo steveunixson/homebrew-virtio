@@ -10,6 +10,7 @@ class QemuVenus < Formula
   depends_on "flex"       => :build
   depends_on "bison"      => :build
 
+  depends_on "spice"  
   depends_on "glib"
   depends_on "pixman"
   depends_on "libepoxy"
@@ -28,6 +29,8 @@ class QemuVenus < Formula
       --enable-opengl
       --enable-virglrenderer
       --enable-slirp
+      --enable-spice
+      --enable-usb-redir
       --disable-werror
     ]
 
