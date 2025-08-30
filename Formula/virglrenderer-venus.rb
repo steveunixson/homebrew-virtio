@@ -17,8 +17,8 @@ class VirglrendererVenus < Formula
 
   # Vendored PyYAML (только для сборки Meson)
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/source/P/PyYAML/PyYAML-6.0.2.tar.gz"
-    sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    url "https://github.com/yaml/pyyaml/archive/refs/tags/6.0.2.tar.gz"
+    sha256 "9377c381ac3fccad8df73d96b5139ef8b1a2c57a0d913e95ab0a2275d66b5caa "
   end
 
   def install
