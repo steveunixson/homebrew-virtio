@@ -14,6 +14,8 @@ class VirglrendererVenus < Formula
   depends_on "mesa"
   depends_on "wayland"
   depends_on "xorgproto"
+  depends_on "libyaml"
+  depends_on "virtgl-pyyaml"
 
   # Vendored PyYAML для meson (без homebrew/core формулы)
   resource "pyyaml" do
@@ -22,17 +24,6 @@ class VirglrendererVenus < Formula
   end
 
   def install
-    # py = Formula["python@3.12"].opt_bin/"python3"
-    # ENV["PYTHON"] = py
-
-    # # Разворачиваем PyYAML в локальную папку и добавляем в PYTHONPATH
-    # (buildpath/"pydeps").mkpath
-    # resource("pyyaml").stage do
-    #   system py, "-m", "pip", "install", ".", "--no-deps", "--prefix", buildpath/"pydeps"
-    # end
-    # site = Dir[buildpath/"pydeps/**/site-packages"].first
-    # ENV.prepend_path "PYTHONPATH", site if site
-
     system "meson", "setup", "build",
            *std_meson_args,
            "-Dvenus=true"
