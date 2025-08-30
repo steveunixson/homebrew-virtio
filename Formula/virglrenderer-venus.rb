@@ -15,7 +15,6 @@ class VirglrendererVenus < Formula
   depends_on "wayland"
   depends_on "xorgproto"
   depends_on "libyaml"
-  depends_on "steveunixson/virtio/pyyaml-virt" => :build
 
   def install
     system "meson", "setup", "build",
