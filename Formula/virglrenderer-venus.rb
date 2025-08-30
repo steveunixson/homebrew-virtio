@@ -15,14 +15,24 @@ class VirglrendererVenus < Formula
   depends_on "wayland"
   depends_on "xorgproto"
 
+  # Vendored PyYAML (только для сборки Meson)
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/source/P/PyYAML/PyYAML-6.0.2.tar.gz"
+    sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  end
+
   def install
     py = Formula["python@3.12"].opt_bin/"python3"
     ENV["PYTHON"] = py
 
-    # Устанавливаем pyyaml прямо в buildpath (чтобы не требовалась системная формула)
-    system py, "-m", "pip", "install", "pyyaml", "--target=#{buildpath}/pydeps"
-
-    ENV.prepend_path "PYTHONPATH", buildpath/"pydeps"
+    # Разворачиваем PyYAML в локальную папку и добавляем её в PYTHONPATH
+    (buildpath/"pydeps").mkpath
+    resource("pyyaml").stage do
+      system py, "-m", "pip", "install", ".", "--no-deps", "--prefix", buildpath/"pydeps"
+    end
+    # site-packages внутри prefix — найдём динамически
+    site = Dir[buildpath/"pydeps/**/site-packages"].first
+    ENV.prepend_path "PYTHONPATH", site if site
 
     system "meson", "setup", "build",
            *std_meson_args,
