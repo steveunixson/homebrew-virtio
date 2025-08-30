@@ -17,7 +17,7 @@ class QemuVenus < Formula
 
   def install
     args = %W[
-      --prefix=\#{prefix}
+      --prefix=#{prefix}
       --enable-gtk
       --enable-opengl
       --enable-virglrenderer
