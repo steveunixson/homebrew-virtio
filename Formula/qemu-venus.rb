@@ -9,7 +9,7 @@ class QemuVenus < Formula
   depends_on "ninja"      => :build
   depends_on "flex"       => :build
   depends_on "bison"      => :build
-
+  
   depends_on "glib"
   depends_on "pixman"
   depends_on "libepoxy"
@@ -20,7 +20,6 @@ class QemuVenus < Formula
   depends_on "alsa-lib"
   depends_on "libpng"
   depends_on "zstd"
-  depends_on "spice-server"
 
   def install
     args = %W[
@@ -29,8 +28,6 @@ class QemuVenus < Formula
       --enable-opengl
       --enable-virglrenderer
       --enable-slirp
-      --enable-spice
-      --enable-usb-redir
       --disable-werror
     ]
 
