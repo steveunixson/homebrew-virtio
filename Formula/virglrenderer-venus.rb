@@ -15,7 +15,7 @@ class VirglrendererVenus < Formula
   depends_on "wayland"
   depends_on "xorgproto"
   depends_on "libyaml"
-  depends_on "virtgl-pyyaml"
+  depends_on "pyyaml"
 
   # Vendored PyYAML для meson (без homebrew/core формулы)
   resource "pyyaml" do
