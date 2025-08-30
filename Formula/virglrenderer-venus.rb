@@ -37,8 +37,7 @@ class VirglrendererVenus < Formula
     # 2) Обычная сборка virglrenderer с Venus
     system "meson", "setup", "build",
            *std_meson_args,
-           "-Dvenus=true",
-           "-Dexamples=false"
+           "-Dvenus=true"
     system "meson", "compile", "-C", "build", "-v"
     system "meson", "install", "-C", "build"
   end
