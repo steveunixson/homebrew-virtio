@@ -22,16 +22,16 @@ class VirglrendererVenus < Formula
   end
 
   def install
-    py = Formula["python@3.12"].opt_bin/"python3"
-    ENV["PYTHON"] = py
+    # py = Formula["python@3.12"].opt_bin/"python3"
+    # ENV["PYTHON"] = py
 
-    # Разворачиваем PyYAML в локальную папку и добавляем в PYTHONPATH
-    (buildpath/"pydeps").mkpath
-    resource("pyyaml").stage do
-      system py, "-m", "pip", "install", ".", "--no-deps", "--prefix", buildpath/"pydeps"
-    end
-    site = Dir[buildpath/"pydeps/**/site-packages"].first
-    ENV.prepend_path "PYTHONPATH", site if site
+    # # Разворачиваем PyYAML в локальную папку и добавляем в PYTHONPATH
+    # (buildpath/"pydeps").mkpath
+    # resource("pyyaml").stage do
+    #   system py, "-m", "pip", "install", ".", "--no-deps", "--prefix", buildpath/"pydeps"
+    # end
+    # site = Dir[buildpath/"pydeps/**/site-packages"].first
+    # ENV.prepend_path "PYTHONPATH", site if site
 
     system "meson", "setup", "build",
            *std_meson_args,
