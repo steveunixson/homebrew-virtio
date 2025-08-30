@@ -5,6 +5,11 @@ class QemuVenus < Formula
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
   depends_on "pkg-config" => :build
+  depends_on "meson"      => :build
+  depends_on "ninja"      => :build
+  depends_on "flex"       => :build
+  depends_on "bison"      => :build
+  
   depends_on "glib"
   depends_on "pixman"
   depends_on "libepoxy"
