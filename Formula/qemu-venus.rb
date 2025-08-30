@@ -9,11 +9,12 @@ class QemuVenus < Formula
   depends_on "ninja"      => :build
   depends_on "flex"       => :build
   depends_on "bison"      => :build
-  
+
   depends_on "glib"
   depends_on "pixman"
   depends_on "libepoxy"
   depends_on "gtk+3"
+  depends_on "sdl2"
   depends_on "libslirp"
   depends_on "virglrenderer-venus"
   depends_on "alsa-lib"
