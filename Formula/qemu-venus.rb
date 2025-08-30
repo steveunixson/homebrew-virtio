@@ -20,6 +20,7 @@ class QemuVenus < Formula
   depends_on "alsa-lib"
   depends_on "libpng"
   depends_on "zstd"
+  depends_on "cyrus-sasl"
 
   def install
     args = %W[
